@@ -1,0 +1,449 @@
+/**********************
+   If nav bar exist
+ **********************/
+
+@base-color: #97E6B3;
+@base-light-color: #CABDFF;
+
+@base: @base-color url('/images/background.png?58a0aa3d93e8f1605130284b0b6e6ec5') top repeat-x;
+
+@almost-black: #444;
+
+body.body-with-nav-bar {
+  //padding-top: 72px;
+  padding-bottom: 20px;
+}
+
+.white, .white a {
+  color: #fff;
+}
+
+body {
+  font-family: 'Nanum Gothic', Arial, sans-serif;
+
+  h1, h2, h3 {
+    font-family: 'Open Sans Condensed', 'Nanum Gothic', sans-serif;
+  }
+
+  /**********************
+     General
+   **********************/
+
+  background: @base-light-color;
+
+  #container {
+    width: 900px;
+    margin: auto;
+  }
+
+  .container-full {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  #content {
+    min-height: 425px;
+    padding: 20px;
+    background: @base;
+    border-radius: 15px;
+    margin: auto;
+    color: white;
+    overflow: auto;
+  }
+
+  #right_column {
+    position: relative;
+    background-color: inherit;
+    float: right;
+    width: 215px;
+    color: #fff;
+    margin-top: -7px;
+    margin-right: -1px;
+    padding-bottom: 20px;
+
+    color: @almost-black;
+  }
+
+  #left_column {
+    float: left;
+    width: 625px;
+
+    input {
+      color: @almost-black;
+    }
+  }
+
+
+  div.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: .8;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    background-size: cover;
+  }
+
+  /**********************
+     Logo
+   **********************/
+
+  .unicon-logo {
+    height: 40px;
+    margin-top: -14px;
+  }
+
+  #logo.size_large {
+    text-align:center;
+    height: 90px;
+  }
+
+  #logo .logo_anchor {
+    overflow: hidden;
+    text-indent: -999em;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .sign-in-logo {
+    height: 90%;
+  }
+
+  /**********************
+     navbar
+   **********************/
+
+  .navbar-btn {
+    margin-top: 23px;
+  }
+
+  #tabs_outer_container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2px 20px 0 0;
+    width: 225px;
+  }
+
+  #header{
+    width: 900px!important;
+    -webkit-font-smoothing: antialiased;
+    height: 71px;
+    margin: auto;
+    position: relative;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  /**********************
+     navbar button
+   **********************/
+
+  .btn-sign-in {
+    height: 25px;
+    min-width: 100px;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 15px;
+    border-radius: 2px;
+    margin-right: 10px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -o-box-sizing: content-box;
+    box-sizing: content-box;
+
+    text-decoration: none!important;
+  }
+
+  .chrome {
+    cursor: pointer;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+    color: #fff;
+    font-size: 13px;
+    line-height: 14px;
+    height: 25px;
+    padding: 4px 7px 5px 7px;
+    font-weight: bold;
+    border-width: 1px;
+    border-style: solid;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 2px;
+    border-color: #9da6af;
+    background: #9da6af;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+  }
+
+  .blue {
+    border-color: #529ecc;
+    background: #529ecc;
+  }
+
+  .on_dark {
+    background: rgba(255,255,255,0.25);
+    border-color: transparent;
+  }
+
+  /**********************
+     sign-in search bar
+   **********************/
+
+  .sign-in-search {
+    margin-top: 30px;
+    padding-right: 60px;
+  }
+
+  .sign-in-search .search-query {
+    opacity: 0.5;
+  }
+
+  .search-query:focus {
+    opacity: 1;
+  }
+
+  .v-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -113px;
+    width: 260px;
+    height: 200px;
+  }
+
+  /**********************
+     sign-in input
+   **********************/
+
+  .sign-in-input {
+    color: @almost-black;
+
+    width: 100%;
+    padding: 11px 10px 11px 13px;
+    display: block;
+    margin: 0;
+    border: 0;
+    background: 0;
+    font: 16px/1.4 "Helvetica Neue","HelveticaNeue",Helvetica,Arial,sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: white;
+  }
+
+  .btn-sign-in-big {
+    margin-right: 0px;
+    padding: 0;
+    margin-top: 20px;
+    line-height: 32px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .form_row {
+    position: relative;
+    border-top: 1px solid #e3e3e3;
+  }
+
+  /**********************
+     navbar 
+   **********************/
+
+  .navbar.transparent.navbar-inverse .navbar-inner {
+     background: rgba(0,0,0,0.4);
+  }
+
+  .navbar-content {
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  .navbar-brand,
+  .navbar-nav li a {
+    line-height:40px;
+    padding-top: 0;
+  }
+
+
+  .navbar-custom {
+    background: @base-light-color;
+    border-color: @base-light-color;
+    margin-bottom: 0px;
+
+    margin: auto;
+  }
+
+  /**********************
+     navbar search form
+   **********************/
+
+  button.nav-not-li, form.nav-not-li {
+    margin-top: 17px;
+  }
+
+  .navbar-right-search {
+    margin-right: 15px !important;
+  }
+
+  input.search-query {
+    padding-left:26px;
+  }
+
+  form.form-search {
+    position: relative;
+  }
+
+  form.form-search:before {
+    display: block;
+    width: 14px;
+    height: 14px;
+    content: "\e003";
+    font-family: 'Glyphicons Halflings';
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+
+    margin-right:20px;
+  }
+
+  /**********************
+    Image grid layout
+   **********************/
+
+  .challenge-schedule-date {
+    font-size: 0.5em;
+  }
+
+  .challenge-info {
+    background: #fff;
+    clear: both;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    color: @almost-black;
+
+    font-size: 14px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    border-radius: 6px;
+  }
+
+  .challenge-info-btn {
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    margin-top: 14px;
+  }
+
+  .challenge-info-thumbnail {
+    width: 90px;
+    height: auto;
+    margin-bottom: 0px;
+  }
+
+  .challenge-info-right {
+    margin-top: 4px;
+  }
+
+  .challenge-info-right > div button {
+    margin-bottom: 10px;
+  }
+  .challenge-info-header {
+    margin-top: 0px;
+  }
+
+  /**********************
+    Post
+   **********************/
+
+  .github-icon {
+    width: 20px;
+    height: auto;
+  }
+
+  #posts {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .post-edit-btn {
+    margin-right: 5px;
+  }
+
+  .post {
+    position: relative;
+    font-size: 13px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .post-container {
+    margin: 0 0 20px 0;
+  }
+
+  .post-avatar {
+    display: block;
+    width: 64px;
+    overflow: visible;
+    clear:both;
+    float:left;
+    background-color: #00000;
+    text-decoration: none;
+    color:#444;
+  }
+
+  .post-wrapper {
+    background: #fff;
+    clear: both;
+    padding-top: 15px;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: #444444;
+    font-size: 14px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    border-radius: 6px;
+
+    margin-top: 20px;
+  }
+
+  /**********************
+    Image grid layout
+   **********************/
+
+  .item { width: 25%; }
+  .item.w2 { width: 50%; }
+
+  /**********************
+    Footer
+   **********************/
+
+  .footer {
+    margin-top: 1.9em;
+    line-height: 0.9em;
+  }
+
+}
+

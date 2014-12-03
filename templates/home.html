@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+  <div id="left_column" class="col-md-8">
+    {% include 'challenge/challenge_info.html' %}
+
+    <ol id="posts" class="posts">
+      {% for post in current_challenge.post_set.all %}
+        <li class="post-container">
+          <div class="post">
+            <div class="post-avatar">
+            </div>
+            <div class="post-wrapper">
+              <h4 class="">{{ post.account.account_id }} : {{ post.name }}</h4><h5>{{post.account}}</h5>
+              <p><img class="github-icon" src="{% static 'img/github.png' %}"/> <a href="{{ post.github_link }}">{{ post.github_link}}</a></p>
+              {{ post.content | safe }}
+                <div class="pull-right">
+                  <form action="{% url 'post:like_post' current_challenge.id post.id %}">
+                    {% if post.like %}
+                      <button class="btn btn-success post-edit-btn" type="submit">
+                    {% else %}
+                      <button class="btn btn-default post-edit-btn" type="submit">
+                    {% endif %}
+                      <span class="glyphicon glyphicon-thumbs-up"></span> 좋아요
+                      <span class="badge">{{ post.liked_account_set.count }}</span>
+                    </button>
+                  </form>
+                </div>
+              {% if user == post.account.user %}
+                <div class="pull-right">
+                  <form action="{% url 'post:delete_post' current_challenge.id post.id %}">
+                    <button class="btn btn-danger" type="submit">
+                      삭제
+                    </button>
+                  </form>
+                </div>
+                <div class="pull-right">
+                  <form action="{% url 'post:edit_post' current_challenge.id post.id %}">
+                    <button class="btn btn-warning post-edit-btn" type="submit">
+                      수정
+                    </button>
+                  </form>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div id="right_column" class="col-md-4">
+    {% include 'right_nav.html' %}
+  </div>
+
+{% endblock %}

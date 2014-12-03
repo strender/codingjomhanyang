@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="main">
+          {% if account == None %}
+            <div class="text-center">
+              <br />
+              <h1 style="font-family: 'Hanna', serif;">유저 검색 결과 없음 :(</h1>
+              <br />
+              <br />
+              <br />
+            </div> 
+          {% else %}
+            <div class="well black">
+              <p>It works!</p>
+              {{ account.user.username }}
+            </div>
+
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

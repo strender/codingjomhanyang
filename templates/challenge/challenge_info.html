@@ -1,0 +1,83 @@
+  <table class="table table-bordered col-sm-16">
+    {% if has_previous %}
+      <div class="pull-left challenge-info-btn">
+        <form action="{% url 'core:home' page_num_minus_1 %}">
+          <button class="btn btn-success" type="submit">Prev Topics</button>
+        </form>
+      </div>
+    {% endif %}
+    <tr class="">
+      {% for challenge in challenges %}
+        <a href="{% url 'core:home' challenge.id %}">
+          {% if challenge.active %}
+            <td class="col-sm-3 info">
+          {% else %}
+            <td class="col-sm-3">
+          {% endif %}
+            <div>
+              <div class="challenge-schedule-date">
+                {{ challenge.start_date }} ~ {{ challenge.finish_date }}
+              </div>
+              <div>
+                <a href="{% url 'core:home' challenge.id %}">
+                  {{ challenge.subject }}
+                </a>
+              </div>
+            </div>
+          </td>
+        </a>
+      {% endfor %}
+    </tr>
+
+    {% if has_next %}
+      <div class="pull-right challenge-info-btn">
+        <form action="{% url 'core:home' page_num_plus_1 %}">
+          <button class="btn btn-success" type="submit">More Topics</button>
+        </form>
+      </div>
+    {% endif %}
+  </table>
+
+  <div class="challenge-info media">
+    {% if current_challenge.is_active %}
+      <h2 class="challenge-info-header text-center">Topic in Progress</h2>
+    {% else %}
+      <h2 class="challenge-info-header text-center">Finished Topic</h2>
+    {% endif %}
+      <div class="media-body">
+        <div class="media-heading">
+          <div class="pull-left">
+            <h2>{{ current_challenge.subject }}</h2>
+            {% if current_challenge.d_day < 0 %}
+              <p>{{ current_challenge.d_day|stringformat:"+d"|slice:"1:" }}일 지났습니다</p>
+            {% else %}
+              <p>{{ current_challenge.d_day }}일 남았습니다</p>
+            {% endif %}
+          </div>
+          <div class="challenge-info-right pull-right">
+            <div>
+              <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-user"></span> 참가한 사람
+                <span class="badge">{{ current_challenge.post_set.count }}</span>
+              </button>
+            </div>
+            <div>
+              {% if not hide_create_btn %}
+                <form action="{% url 'post:create_post' current_challenge.id %}">
+                  {% if disable_create_btn %}
+                    <button class="btn btn-info" type="submit" disabled>
+                      <span class="glyphicon glyphicon-star"></span> 참가됨
+                    </button>
+                  {% else %}
+                    <button class="btn btn-info" type="submit">
+                      <span class="glyphicon glyphicon-star"></span> 참가하기
+                    </button>
+                  {% endif %}
+                </form>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{ current_challenge.details }}
+  </div>

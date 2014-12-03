@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block unauthenticated_content %}
+
+{% load staticfiles %}
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-sm-7 text-center">
+      <br/>
+      <br/>
+      <div class="row">
+        <img src="{% static 'img/big_logo_black_with_moto.png' %}" id="logo" class="unicon-logo size_large" style="width: 90%; height: auto;"/>
+      <br/>
+      <br/>
+      <br/>
+      </div>
+      <p>컴공의, 컴공에 의한, 컴공을 위한</p><p>오픈소스 토론 커뮤니티</p>
+    </div>
+    <div class="col-sm-5">
+      <div style="height:25px;"></div>
+      <form role="form-horizontal" action="/account/sign_up/" method="post">{% csrf_token %}
+        <input id="username" class="sign-in-input form_row" name="username" type="email" placeholder="이메일">
+        <br>
+        <input id="password1" class="sign-in-input form_row" name="password1" type="password" placeholder="비밀번호">
+        <br>
+        <input id="password2" class="sign-in-input form_row" name="password2" type="password" placeholder="비밀번호 확인">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

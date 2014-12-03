@@ -1,0 +1,46 @@
+  <table class="table table-bordered col-sm-16">
+    <tr class="">
+      {% for challenge in challenges %}
+        {% if challenge.active %}
+          <td class="col-sm-3 info">
+        {% else %}
+          <td class="col-sm-3">
+        {% endif %}
+          <div>
+            <div class="challenge-schedule-date">
+              {{ challenge.start_date }} ~ {{ challenge.finish_date }}
+            </div>
+            <div>
+              <img src=""/>
+              {{ challenge.subject }}
+            </div>
+          </div>
+        </td>
+      {% endfor %}
+    </tr>
+  </table>
+
+  <div class="challenge-info media">
+    <h2 class="challenge-info-header text-center">THIS WEEK HACKATHON</h2>
+      <img src="{{ current_challenge.thumbnail_url }}" class="challenge-info-thumbnail media-object thumbnail pull-left"/>
+      <div class="media-body">
+        <div class="media-heading">
+          <h1 class="pull-left">{{ current_challenge.subject }}</h1>
+          <div class="challenge-info-right pull-right">
+            <div>
+              <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-user"></span> 참가한 사람
+                {% if current_challenge.account_set.count %}
+                  <span class="badge">{{ current_challenge.account_set.count }}</span>
+                {% else %}
+                  <span class="badge"> 0</span>
+                {% endif %}
+              </button>
+            </div>
+            <div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{ current_challenge.details }}
+  </div>

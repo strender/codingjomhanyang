@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+  <div id="left_column">
+    {% include 'challenge/challenge_info.html' with hide_create_btn=True %}
+    <br/>
+
+    {% if post_id %}
+      <form class="form-horizontal" role="form" action="{% url 'post:edit_post' challenge_id=challenge_id post_id=post_id %}" method="post"> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" value="{{ next_url }}" name="next_url">
+        <button class="btn btn-lg btn-success btn-block" type="submit">Edit post</button>
+    {% else %}
+      <form class="form-horizontal" role="form" action="{% url 'post:create_post' challenge_id=challenge_id %}" method="post"> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" value="{{ next_url }}" name="next_url">
+        <button class="btn btn-lg btn-success btn-block" type="submit">Create post</button>
+    {% endif %}
+    </form>
+  </div>
+
+
+{% endblock %}
